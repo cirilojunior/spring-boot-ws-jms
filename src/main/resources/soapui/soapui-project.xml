@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="d24393d2-0bf3-439c-8960-b9d1aa318367" activeEnvironment="Default" name="POC Spring Boot e WS" resourceRoot="" soapui-version="5.4.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="99076c3c-82fb-4eda-b570-7b0a3de8da43" wsaVersion="NONE" name="ProcessoEletronicoSoap11" type="wsdl" bindingName="{http://minhaempresa.com.br/processoeletronico/definitions}ProcessoEletronicoSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/processoEletronicoService/contrato.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/processoEletronicoService/contrato.wsdl"><con:part><con:url>http://localhost:8080/processoEletronicoService/contrato.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://minhaempresa.com.br/processoeletronico/definitions" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://minhaempresa.com.br/processoeletronico/schemas" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://minhaempresa.com.br/processoeletronico/definitions">
+<con:soapui-project id="d24393d2-0bf3-439c-8960-b9d1aa318367" activeEnvironment="Default" name="POC Spring Boot e WS" resourceRoot="" soapui-version="5.4.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="99076c3c-82fb-4eda-b570-7b0a3de8da43" wsaVersion="NONE" name="ProcessoEletronicoSoap11" type="wsdl" bindingName="{http://minhaempresa.com.br/processoeletronico/definitions}ProcessoEletronicoSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/processoEletronicoService/contrato.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/processoEletronicoService/contrato.wsdl"><con:part><con:url>http://localhost:8080/processoEletronicoService/contrato.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://minhaempresa.com.br/processoeletronico/definitions" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://minhaempresa.com.br/processoeletronico/schemas" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://minhaempresa.com.br/processoeletronico/definitions">
   <wsdl:types>
     <xs:schema elementFormDefault="qualified" targetNamespace="http://minhaempresa.com.br/processoeletronico/schemas" xmlns:pe="http://minhaempresa.com.br/processoeletronico/schemas" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:annotation>
@@ -30,7 +30,8 @@
           <xs:documentation xml:lang="pt">Documento de um Processo Eletrônico...</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-          <xs:element name="titulo" type="xs:integer"/>
+          <xs:element name="id" type="xs:int"/>
+          <xs:element name="titulo" type="xs:string"/>
           <xs:element name="ordem" type="xs:integer"/>
           <xs:element name="texto" type="xs:string"/>
         </xs:sequence>
@@ -87,26 +88,28 @@
       <soap:address location="http://localhost:8080/processoEletronicoService"/>
     </wsdl:port>
   </wsdl:service>
-</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/processoEletronicoService</con:endpoint></con:endpoints><con:operation id="7db8b1ab-389d-4362-bd45-ea4722d931f4" isOneWay="false" action="" name="ProcessoEletronico" bindingOperationName="ProcessoEletronico" type="Request-Response" outputName="ProcessoEletronicoResponse" inputName="ProcessoEletronicoRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7389b93b-7bdf-4473-a24d-ffbf15c6a9ac" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/processoEletronicoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://minhaempresa.com.br/processoeletronico/schemas">\r
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/processoEletronicoService</con:endpoint></con:endpoints><con:operation id="7db8b1ab-389d-4362-bd45-ea4722d931f4" isOneWay="false" action="" name="ProcessoEletronico" bindingOperationName="ProcessoEletronico" type="Request-Response" outputName="ProcessoEletronicoResponse" inputName="ProcessoEletronicoRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="752b697a-6171-4c6e-ae01-e56590a46f88" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/processoEletronicoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://minhaempresa.com.br/processoeletronico/schemas">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <sch:ProcessoEletronicoRequest>\r
          <sch:ProcessoEletronico>\r
-            <sch:Numero>123</sch:Numero>\r
-            <sch:Data>2019/02/18</sch:Data>\r
-            <sch:Documentos>\r
-               <!--1 or more repetitions:-->\r
-               <sch:Documento>\r
-                  <sch:titulo>A</sch:titulo>\r
-                  <sch:ordem>1</sch:ordem>\r
-                  <sch:texto>aaa</sch:texto>\r
-               </sch:Documento>\r
+            <sch:Numero>123</sch:Numero>
+            <sch:Data>2019/02/18</sch:Data>
+            <sch:Documentos>
+               <!--1 or more repetitions:-->
                <sch:Documento>
+                  <sch:id>1</sch:id>
+                  <sch:titulo>A</sch:titulo>
+                  <sch:ordem>1</sch:ordem>
+                  <sch:texto>aaa</sch:texto>
+               </sch:Documento>
+               <sch:Documento>
+                  <sch:id>2</sch:id>
                   <sch:titulo>B</sch:titulo>
                   <sch:ordem>2</sch:ordem>
                   <sch:texto>bbb</sch:texto>
                </sch:Documento>
-            </sch:Documentos>\r
+            </sch:Documentos>
          </sch:ProcessoEletronico>\r
       </sch:ProcessoEletronicoRequest>\r
    </soapenv:Body>\r
