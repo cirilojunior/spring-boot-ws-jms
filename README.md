@@ -7,7 +7,7 @@ OBS.: Deve rodar com JDK 7 ou 8 (Spring Web Services requires a standard Java 7 
 
 1. Rodar mvn clean compile para gerar as classes a partir do XSD.
 1. Rodar classe HolidaySpringWsApplication
-1. Acessar http://localhost:8080/holidayService/holiday.wsdl 
+1. Acessar http://localhost:8080/processoEletronicoService/processoEletronico.wsdl 
 
 
 Referências avaliadas:

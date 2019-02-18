@@ -1,4 +1,4 @@
-package com.mycompany;
+package br.com.minhaempresa;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,7 +6,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class HolidaySpringWsApplication extends SpringBootServletInitializer {
+public class Application extends SpringBootServletInitializer {
 
     /**
      * Para executar em containers da forma tradicional, ou seja,
@@ -18,7 +18,7 @@ public class HolidaySpringWsApplication extends SpringBootServletInitializer {
     @Override
     protected SpringApplicationBuilder configure(
             SpringApplicationBuilder builder) {
-        return builder.sources(HolidaySpringWsApplication.class);
+        return builder.sources(Application.class);
     }
 
     /**
@@ -27,7 +27,7 @@ public class HolidaySpringWsApplication extends SpringBootServletInitializer {
      * @param args
      */
     public static void main(String[] args) {
-        SpringApplication.run(HolidaySpringWsApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
 }

@@ -1,4 +1,4 @@
-package com.mycompany;
+package br.com.minhaempresa;
 
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
@@ -15,15 +15,15 @@ import org.springframework.xml.xsd.XsdSchema;
 
 @EnableWs
 @Configuration
-@ComponentScan(basePackages = "com.mycompany.*")
+@ComponentScan(basePackages = "br.com.minhaempresa.*")
 public class WebServiceConfig extends WsConfigurerAdapter {
 
-    @Bean(name = "holiday")
+    @Bean(name = "processoEletronico")
     public DefaultWsdl11Definition mpWsdl11Definition(XsdSchema schema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
-        wsdl11Definition.setPortTypeName("HumanResource");
-        wsdl11Definition.setLocationUri("/holidayService");
-        wsdl11Definition.setTargetNamespace("http://mycompany.com/hr/definitions");
+        wsdl11Definition.setPortTypeName("ProcessoEletronico");
+        wsdl11Definition.setLocationUri("/processoEletronicoService");
+        wsdl11Definition.setTargetNamespace("http://minhaempresa.com.br/processoeletronico/definitions");
         wsdl11Definition.setCreateSoap11Binding(true);
         wsdl11Definition.setSchema(schema);
         return wsdl11Definition;
@@ -34,12 +34,12 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         MessageDispatcherServlet messageDispatcherServlet = new MessageDispatcherServlet();
         messageDispatcherServlet.setApplicationContext(context);
         messageDispatcherServlet.setTransformWsdlLocations(true);
-        return new ServletRegistrationBean(messageDispatcherServlet, "/holidayService/*");
+        return new ServletRegistrationBean(messageDispatcherServlet, "/processoEletronicoService/*");
     }
 
     @Bean
-    public XsdSchema hrSchema() {
-        return new SimpleXsdSchema(new ClassPathResource("/wsdl/tutorial_spring/hr.xsd"));
+    public XsdSchema peSchema() {
+        return new SimpleXsdSchema(new ClassPathResource("/wsdl/minha_empresa.xsd"));
     }
 
 }

@@ -1,0 +1,44 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:pe="http://minhaempresa.com.br/processoeletronico/schemas"
+           elementFormDefault="qualified"
+           targetNamespace="http://minhaempresa.com.br/processoeletronico/schemas">
+
+    <xs:complexType name="ProcessoEletronicoRequest">
+        <xs:annotation>
+            <xs:documentation xml:lang="pt">
+                Envio do Processo Eletrônico....
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="Numero" type="pe:ProcessoEletronicoType"/>
+            <xs:element name="Data" type="xs:date"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ProcessoEletronicoType">
+        <xs:annotation>
+            <xs:documentation xml:lang="pt">
+                Processo Eletrônico....
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="Numero" type="xs:string"/>
+            <xs:element name="Data" type="xs:date"/>
+            <xs:element type="pe:DocumetoType" name="Documentos" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DocumetoType">
+        <xs:annotation>
+            <xs:documentation xml:lang="pt">
+                Documento de um Processo Eletrônico...
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="titulo" type="xs:integer"/>
+            <xs:element name="ordem" type="xs:integer"/>
+            <xs:element name="texto" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
