@@ -1,5 +1,6 @@
 package com.mycompany.hr.ws;
 
+import com.mycompany.hr.schemas.HolidayRequest;
 import com.mycompany.hr.service.HumanResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
@@ -21,8 +22,9 @@ public class HolidayEndpoint {
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "HolidayRequest")
-    public void handleHolidayRequest(@RequestPayload Object holidayRequest) throws Exception {
+    public void handleHolidayRequest(@RequestPayload HolidayRequest holidayRequest) throws Exception {
         System.out.printf("Recebeu a requisição SOAP...");
+        System.out.println(holidayRequest);
         //humanResourceService.bookHoliday(startDate, endDate, name);
     }
 

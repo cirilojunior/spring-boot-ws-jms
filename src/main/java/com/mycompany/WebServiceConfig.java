@@ -22,7 +22,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
     public DefaultWsdl11Definition mpWsdl11Definition(XsdSchema schema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("HumanResource");
-        wsdl11Definition.setLocationUri("/holidayService/");
+        wsdl11Definition.setLocationUri("/holidayService");
         wsdl11Definition.setTargetNamespace("http://mycompany.com/hr/definitions");
         wsdl11Definition.setCreateSoap11Binding(true);
         wsdl11Definition.setSchema(schema);
@@ -34,7 +34,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         MessageDispatcherServlet messageDispatcherServlet = new MessageDispatcherServlet();
         messageDispatcherServlet.setApplicationContext(context);
         messageDispatcherServlet.setTransformWsdlLocations(true);
-        return new ServletRegistrationBean(messageDispatcherServlet, "/services/*");
+        return new ServletRegistrationBean(messageDispatcherServlet, "/holidayService/*");
     }
 
     @Bean
