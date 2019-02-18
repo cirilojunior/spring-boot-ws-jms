@@ -19,9 +19,20 @@
             </xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="Numero" type="xs:string"/>
-            <xs:element name="Data" type="xs:date"/>
-            <xs:element type="pe:DocumetoType" name="Documentos" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="Numero" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="Data" type="xs:date" minOccurs="1" maxOccurs="1"/>
+            <xs:element type="pe:ListaDocumetosType" name="Documentos" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ListaDocumetosType">
+        <xs:annotation>
+            <xs:documentation xml:lang="pt">
+                Lista de Documentos de um Processo Eletrônico...
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element type="pe:DocumetoType" name="Documento" minOccurs="1" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -39,18 +50,30 @@
     </xs:complexType>
 
 
-    <!-- Operações -->
+    <!-- Elementos das Operações -->
 
     <xs:element name="ProcessoEletronicoRequest">
         <xs:annotation>
             <xs:documentation xml:lang="pt">
-                Envio do Processo Eletrônico....
+                Parâmetro da operação de Envio do Processo Eletrônico....
             </xs:documentation>
         </xs:annotation>
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="Numero" type="pe:ProcessoEletronicoType"/>
-                <xs:element name="Data" type="xs:date"/>
+                <xs:element name="ProcessoEletronico" type="pe:ProcessoEletronicoType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="ProcessoEletronicoResponse">
+        <xs:annotation>
+            <xs:documentation xml:lang="pt">
+                Resposta da operação de Envio do Processo Eletrônico....
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="protocolo" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
