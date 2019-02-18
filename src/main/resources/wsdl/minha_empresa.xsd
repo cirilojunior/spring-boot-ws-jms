@@ -3,17 +3,14 @@
            elementFormDefault="qualified"
            targetNamespace="http://minhaempresa.com.br/processoeletronico/schemas">
 
-    <xs:complexType name="ProcessoEletronicoRequest">
-        <xs:annotation>
-            <xs:documentation xml:lang="pt">
-                Envio do Processo Eletrônico....
-            </xs:documentation>
-        </xs:annotation>
-        <xs:sequence>
-            <xs:element name="Numero" type="pe:ProcessoEletronicoType"/>
-            <xs:element name="Data" type="xs:date"/>
-        </xs:sequence>
-    </xs:complexType>
+    <xs:annotation>
+        <xs:appinfo>Integracao Minha Empresa e Parceiros.</xs:appinfo>
+        <xs:documentation>
+            Integracao entre empresas com Spring Boot e WS.
+        </xs:documentation>
+    </xs:annotation>
+
+    <!-- Tipos de Dados -->
 
     <xs:complexType name="ProcessoEletronicoType">
         <xs:annotation>
@@ -40,5 +37,22 @@
             <xs:element name="texto" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
+
+
+    <!-- Operações -->
+
+    <xs:element name="ProcessoEletronicoRequest">
+        <xs:annotation>
+            <xs:documentation xml:lang="pt">
+                Envio do Processo Eletrônico....
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Numero" type="pe:ProcessoEletronicoType"/>
+                <xs:element name="Data" type="xs:date"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 
 </xs:schema>
