@@ -10,7 +10,6 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
-import java.util.UUID;
 
 @Endpoint
 public class ProcessoEletronicoEndpoint {
@@ -31,11 +30,11 @@ public class ProcessoEletronicoEndpoint {
     public ProcessoEletronicoResponse recebe(@RequestPayload ProcessoEletronicoRequest processoEletronicoRequest) throws RecebimentoProcessoEletronicoFault {
         try {
             System.out.printf("Recebeu a requisição SOAP...");
-            System.out.println(processoEletronicoRequest);
-            processoEletronicoService.receber();
+            String protocolo = processoEletronicoService.receber(processoEletronicoRequest.getProcessoEletronico());
+            System.out.println(String.format("Protocolo gerado: %s", protocolo));
 
             ProcessoEletronicoResponse resposta = objectFactory.createProcessoEletronicoResponse();
-            resposta.setProtocolo(UUID.randomUUID().toString());
+            resposta.setProtocolo(protocolo);
             return resposta;
         } catch (Exception e) {
             throw new RecebimentoProcessoEletronicoFault("Erro no recebimento...");
