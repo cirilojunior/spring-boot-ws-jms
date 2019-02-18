@@ -1,0 +1,149 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://parceiro.jus.br/procedimento/policial"
+           xmlns:tns="http://parceiro.jus.br/procedimento/policial"
+           attributeFormDefault="qualified"
+           elementFormDefault="qualified">
+
+    <xs:annotation>
+        <xs:appinfo>Integracao Parceiro Jurídico e Delegacia.</xs:appinfo>
+        <xs:documentation>
+            Definição da troca de informações entre Parceiro Jurídico e Delegacia.
+        </xs:documentation>
+    </xs:annotation>
+
+    <!--
+    Data types
+    -->
+    <xs:complexType name="categoriaProcedimentoType">
+        <xs:annotation>
+            <xs:documentation xml:lang="pt">
+                Categoria do Procedimento no Parceiro
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element type="xs:int" name="id"/>
+            <xs:element type="xs:string" name="descricao"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="situacaoProcedimentoType">
+        <xs:annotation>
+            <xs:documentation xml:lang="pt">
+                Situação do Procedimento no Parceiro
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element type="xs:int" name="id"/>
+            <xs:element type="xs:string" name="descricao"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ocorrenciaType">
+        <xs:annotation>
+            <xs:documentation xml:lang="pt">
+                Representa as informações de uma Ocorrência.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element type="xs:int" name="id_tipo_delito"/>
+            <xs:element type="xs:string" name="descricao_tipo_delito"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="idType">
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="1"/>
+            <xs:totalDigits value="10"/>
+            <xs:fractionDigits value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="numeroType">
+        <xs:annotation>
+            <xs:documentation xml:lang="pt">
+                NUMERO DO RO = número do Procedimento
+                DDD-99999/AAAA onde
+                DDD- especificação da delegacia
+                99999-número do seqüencial
+                AAAA- ano do registro
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="14"/>
+            <xs:pattern value="[A-Z0-9]{8}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="procedimentoType">
+        <xs:annotation>
+            <xs:documentation>
+                Representa um Procedimento enviado pela Delegacia.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element type="tns:idType" name="id"/>
+            <xs:element type="tns:numeroType" name="numero"/>
+            <xs:element type="xs:string" name="id_anexos" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element type="tns:categoriaProcedimentoType" name="categoria"/>
+            <xs:element type="tns:situacaoProcedimentoType" name="situacao"/>
+            <xs:element type="xs:string" name="numero_cnj"/>
+            <xs:element type="xs:int" name="sigilo"/>
+            <xs:element type="xs:int" name="id_delegacia_circunscricao_fato"/>
+            <xs:element type="xs:string" name="descricao_delegacia_circunscricao_fato"/>
+            <xs:element type="tns:ocorrenciaType" name="ocorrencias" maxOccurs="unbounded" minOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="procedimento" type="tns:procedimentoType"/>
+
+    <!--
+    ***************************************
+    Operations
+    ***************************************
+    -->
+    <xs:element name="procedimentoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="procedimento" type="tns:procedimentoType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="procedimentoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="numero_cnmp" type="xs:string"/>
+                <xs:element name="mensagem" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="documentoPromocaoRequest">
+        <xs:annotation>
+            <xs:documentation>
+                Mensagem para obter um Procedimento da Delegacia ( PDF + Metadados ) por seu ID.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="documentoPromocaoResponse">
+        <xs:annotation>
+            <xs:documentation>
+                Entrega uma manifestação para a Delegacia.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string"/>
+                <xs:element name="documento" type="xs:base64Binary"/>
+                <xs:element name="mensagem" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
