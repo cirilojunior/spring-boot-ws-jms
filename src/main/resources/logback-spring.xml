@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-
+    <!--<statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener" />-->
     <property name="LOGS" value="./logs" />
 
     <appender name="Console"
@@ -39,7 +39,11 @@
     </root>
 
     <!-- LOG "org.springframework.ws.client.MessageTracing.*" at TRACE level -->
-    <logger name="org.springframework.ws.server" level="trace" additivity="false">
+    <logger name="org.springframework.ws.server.MessageTracing.sent" level="trace" additivity="false">
+        <!--<appender-ref ref="RollingFile" />-->
+        <appender-ref ref="Console" />
+    </logger>
+    <logger name="org.springframework.ws.server.MessageTracing.received" level="trace" additivity="false">
         <!--<appender-ref ref="RollingFile" />-->
         <appender-ref ref="Console" />
     </logger>
