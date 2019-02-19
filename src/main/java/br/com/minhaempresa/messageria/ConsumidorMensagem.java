@@ -11,7 +11,7 @@ public class ConsumidorMensagem {
 
     private static final Logger Logger = LoggerFactory.getLogger(ConsumidorMensagem.class);
 
-    @JmsListener(destination = MessageriaConfig.FILA_RECUPERAR_PECA, containerFactory = "processoEletronicoMessageFactory")
+    @JmsListener(destination = MessageriaConfig.FILA_RECUPERAR_PECA)
     public void consumir(MensagemRecuperarDocumento mensagem) {
         Logger.info("Consumindo mensagem da fila...");
         Logger.info("Mensagem: {}.", mensagem);
