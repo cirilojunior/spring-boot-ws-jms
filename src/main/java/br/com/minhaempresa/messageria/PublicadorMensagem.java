@@ -1,6 +1,6 @@
 package br.com.minhaempresa.messageria;
 
-import br.com.minhaempresa.ws.MessageriaConfig;
+import br.com.minhaempresa.MessageriaConfig;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
@@ -17,9 +17,9 @@ public class PublicadorMensagem {
         this.jmsTemplate = jmsTemplate;
     }
 
-    public void publica(RecuperarDocumentoMessage mensagem) {
+    public <T extends Mensagem> void publica(T mensagem) {
         Logger.info("Publicando mensagem da fila...");
-        jmsTemplate.convertAndSend(MessageriaConfig.FILA_RECUPERAR_PECA, mensagem);
+        jmsTemplate.convertAndSend(MessageriaConfig.FILA_RECUPERAR_PECA, mensagem.valor());
         Logger.info("Mensagem '{}' publicada com sucesso.", mensagem);
     }
 

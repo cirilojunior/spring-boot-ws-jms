@@ -1,7 +1,7 @@
 package br.com.minhaempresa.service;
 
 import br.com.minhaempresa.messageria.PublicadorMensagem;
-import br.com.minhaempresa.messageria.RecuperarDocumentoMessage;
+import br.com.minhaempresa.messageria.MensagemRecuperarDocumento;
 import br.com.minhaempresa.processoeletronico.schemas.ProcessoEletronicoType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,7 +30,7 @@ public class ProcessoEletronicoServiceImpl implements ProcessoEletronicoService 
         processoEletronico.getDocumentos().getDocumento().forEach(
                 documento ->
                 {
-                    RecuperarDocumentoMessage mensagem = new RecuperarDocumentoMessage(documento.getId());
+                    MensagemRecuperarDocumento mensagem = new MensagemRecuperarDocumento(documento.getId());
                     publicadorMensagem.publica(mensagem);
                     Logger.info("Documento de ID {} incluído na fila para recuperação.", documento.getId());
                 }
