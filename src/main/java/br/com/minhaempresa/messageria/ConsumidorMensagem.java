@@ -1,6 +1,6 @@
 package br.com.minhaempresa.messageria;
 
-import br.com.minhaempresa.ws.MessageriaConfig;
+import br.com.minhaempresa.MessageriaConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jms.annotation.JmsListener;
@@ -12,8 +12,8 @@ public class ConsumidorMensagem {
     private static final Logger Logger = LoggerFactory.getLogger(ConsumidorMensagem.class);
 
     @JmsListener(destination = MessageriaConfig.FILA_RECUPERAR_PECA, containerFactory = "processoEletronicoMessageFactory")
-    public void consumir(RecuperarDocumentoMessage mensagem) {
+    public void consumir(MensagemRecuperarDocumento mensagem) {
         Logger.info("Consumindo mensagem da fila...");
-        Logger.debug("Mensagem: {}.", mensagem);
+        Logger.info("Mensagem: {}.", mensagem);
     }
 }

@@ -1,5 +1,6 @@
-package br.com.minhaempresa.ws;
+package br.com.minhaempresa;
 
+import br.com.minhaempresa.messageria.RecuperarDocumentoMessageConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.jms.DefaultJmsListenerContainerFactoryConfigurer;
@@ -8,9 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
 import org.springframework.jms.config.JmsListenerContainerFactory;
-import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
 import org.springframework.jms.support.converter.MessageConverter;
-import org.springframework.jms.support.converter.MessageType;
 
 import javax.jms.ConnectionFactory;
 
@@ -30,12 +29,10 @@ public class MessageriaConfig {
         return factory;
     }
 
-    @Bean // Serialize message content to json using TextMessage
-    public MessageConverter jacksonJmsMessageConverter() {
+    @Bean
+    public MessageConverter documentoMessageConverter() {
         Logger.info("Criando JMS Message Converter...");
-        MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
-        converter.setTargetType(MessageType.TEXT);
-        converter.setTypeIdPropertyName("_type");
+        RecuperarDocumentoMessageConverter converter = new RecuperarDocumentoMessageConverter();
         return converter;
     }
 
