@@ -30,4 +30,8 @@ Referências avaliadas:
 1. https://docs.spring.io/spring-ws/docs/3.0.6.RELEASE/reference/#overview
 1. https://howtodoinjava.com/spring-boot/spring-boot-soap-webservice-example/
 1. https://spring.io/guides/gs/producing-web-service/
+
 1. https://spring.io/guides/gs/messaging-jms/
+1. https://www.baeldung.com/spring-jms
+1. https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-messaging.html
+1. https://examples.javacodegeeks.com/enterprise-java/jms/java-jms-helloworld-on-jboss-example/
