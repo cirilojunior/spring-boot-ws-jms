@@ -1,5 +1,5 @@
 # spring-ws-and-boot
-Exemplo de uso de Spring WS com Spring Boot.
+Exemplo de uso de Spring Boot com Spring WS e Messageria.
 
 Baseado na documentação do produto e evoluindo para uma POC temática de um projeto real e outros sites:
 
