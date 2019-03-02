@@ -36,3 +36,4 @@ Referências avaliadas:
 1. https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-messaging.html
 1. https://examples.javacodegeeks.com/enterprise-java/jms/java-jms-helloworld-on-jboss-example/
 1. https://codenotfound.com/spring-jms-tutorials
+1. http://activemq.apache.org/how-to-unit-test-jms-code.html
