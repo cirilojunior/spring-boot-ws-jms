@@ -1,4 +1,4 @@
-# spring-ws-and-boot
+# spring-boot-ws-jms
 Exemplo de uso de Spring Boot com Spring WS e Messageria.
 
 Baseado na documentação do produto e evoluindo para uma POC temática de um projeto real e outros sites:
