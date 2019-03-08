@@ -1,4 +1,4 @@
-package br.com.minhaempresa.messageria;
+package br.com.minhaempresa.application.integracao;
 
 public interface Mensagem {
 

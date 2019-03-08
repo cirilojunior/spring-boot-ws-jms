@@ -1,6 +1,6 @@
-package br.com.minhaempresa;
+package br.com.minhaempresa.application.config;
 
-import br.com.minhaempresa.processoeletronico.schemas.ObjectFactory;
+import br.com.minhaempresa.infrastructure.ws.schemas.ObjectFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -25,7 +25,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
     private static final String DISPATCHER_SERVLET_MAPPING = "/processoEletronicoService/*";
 
     @Bean(name = WS_WSDL_NAME)
-    public DefaultWsdl11Definition mpWsdl11Definition(XsdSchema schema) {
+    public DefaultWsdl11Definition peWsdl11Definition(XsdSchema schema) {
         final String caminhoWsdl = new StringBuilder(WS_LOCATION_URI).append("/").append(WS_WSDL_NAME).append(".wsdl").toString();
 
         Logger.info("Publicando o WSDL em {} ...", caminhoWsdl);
