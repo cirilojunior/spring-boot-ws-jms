@@ -1,11 +1,13 @@
-package br.com.minhaempresa;
+package br.com.minhaempresa.application.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+@ComponentScan(basePackages = "br.com.minhaempresa") // Necessario porque esta classe não está no pacote raíz da aplicação.
 public class Application extends SpringBootServletInitializer {
 
     /**

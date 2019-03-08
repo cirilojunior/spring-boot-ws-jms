@@ -1,6 +1,6 @@
-package br.com.minhaempresa;
+package br.com.minhaempresa.application.config;
 
-import br.com.minhaempresa.messageria.RecuperarDocumentoMessageConverter;
+import br.com.minhaempresa.infrastructure.messageria.RecuperarDocumentoMessageConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.jms.DefaultJmsListenerContainerFactoryConfigurer;

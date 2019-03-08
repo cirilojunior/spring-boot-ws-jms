@@ -1,9 +1,9 @@
-package br.com.minhaempresa.ws;
+package br.com.minhaempresa.infrastructure.ws;
 
-import br.com.minhaempresa.processoeletronico.schemas.ObjectFactory;
-import br.com.minhaempresa.processoeletronico.schemas.ProcessoEletronicoRequest;
-import br.com.minhaempresa.processoeletronico.schemas.ProcessoEletronicoResponse;
-import br.com.minhaempresa.service.ProcessoEletronicoService;
+import br.com.minhaempresa.infrastructure.ws.schemas.ObjectFactory;
+import br.com.minhaempresa.infrastructure.ws.schemas.ProcessoEletronicoRequest;
+import br.com.minhaempresa.infrastructure.ws.schemas.ProcessoEletronicoResponse;
+import br.com.minhaempresa.application.processoeletronico.ProcessoEletronicoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 public class ProcessoEletronicoEndpoint {
 
     private static final Logger Logger = LoggerFactory.getLogger(ProcessoEletronicoEndpoint.class);
-    private static final String NAMESPACE_URI = "http://minhaempresa.com.br/processoeletronico/schemas";
+    private static final String NAMESPACE_URI = "http://minhaempresa.com.br/infrastructure/ws/schemas";
 
     private ProcessoEletronicoService processoEletronicoService;
     private ObjectFactory objectFactory;

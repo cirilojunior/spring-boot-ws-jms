@@ -1,6 +1,6 @@
-package br.com.minhaempresa.messageria;
+package br.com.minhaempresa.application.integracao;
 
-import br.com.minhaempresa.MessageriaConfig;
+import br.com.minhaempresa.application.config.MessageriaConfig;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;

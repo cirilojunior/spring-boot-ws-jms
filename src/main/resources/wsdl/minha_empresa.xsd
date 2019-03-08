@@ -1,7 +1,7 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:pe="http://minhaempresa.com.br/processoeletronico/schemas"
+           xmlns:pe="http://minhaempresa.com.br/infrastructure/ws/schemas"
            elementFormDefault="qualified"
-           targetNamespace="http://minhaempresa.com.br/processoeletronico/schemas">
+           targetNamespace="http://minhaempresa.com.br/infrastructure/ws/schemas">
 
     <xs:annotation>
         <xs:appinfo>Integracao Minha Empresa e Parceiros.</xs:appinfo>
@@ -20,32 +20,32 @@
         </xs:annotation>
         <xs:sequence>
             <xs:element name="Numero" type="xs:string" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="Data" type="xs:date" minOccurs="1" maxOccurs="1"/>
-            <xs:element type="pe:ListaDocumetosType" name="Documentos" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="DataHora" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+            <xs:element type="pe:ListaPecasType" name="Pecas" minOccurs="1" maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="ListaDocumetosType">
+    <xs:complexType name="ListaPecasType">
         <xs:annotation>
             <xs:documentation xml:lang="pt">
-                Lista de Documentos de um Processo Eletrônico...
+                Lista de Peças de um Processo Eletrônico...
             </xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element type="pe:DocumetoType" name="Documento" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element type="pe:PecaType" name="Peca" minOccurs="1" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="DocumetoType">
+    <xs:complexType name="PecaType">
         <xs:annotation>
             <xs:documentation xml:lang="pt">
-                Documento de um Processo Eletrônico...
+                Peça (Documento) de um Processo Eletrônico...
             </xs:documentation>
         </xs:annotation>
         <xs:sequence>
             <xs:element name="id" type="xs:int"/>
             <xs:element name="titulo" type="xs:string"/>
-            <xs:element name="ordem" type="xs:integer"/>
+            <xs:element name="ordem" type="xs:int"/>
             <xs:element name="texto" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>

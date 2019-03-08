@@ -1,4 +1,4 @@
-package br.com.minhaempresa.ws;
+package br.com.minhaempresa.infrastructure.ws;
 
 public class RecebimentoProcessoEletronicoFault extends RuntimeException {
 
