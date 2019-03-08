@@ -1,6 +1,6 @@
-package br.com.minhaempresa;
+package br.com.minhaempresa.application.config;
 
-import br.com.minhaempresa.messageria.RecuperarDocumentoMessageConverter;
+import br.com.minhaempresa.infrastructure.messageria.RecuperarDocumentoMessageConverter;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +17,7 @@ import javax.jms.ConnectionFactory;
 @EnableJms
 public class MessageriaConfig {
 
-    public static final String FILA_RECUPERAR_PECA = "fila_documentos";
+    public static final String FILA_RECUPERAR_PECA = "fila_pecas";
     private static final Logger Logger = LoggerFactory.getLogger(MessageriaConfig.class);
 
     @Value("${spring.activemq.broker-url}")
