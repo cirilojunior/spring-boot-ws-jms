@@ -1,6 +1,6 @@
 package br.com.minhaempresa.application.integracao;
 
-import br.com.minhaempresa.MessageriaConfig;
+import br.com.minhaempresa.application.config.MessageriaConfig;
 import br.com.minhaempresa.application.processoeletronico.RecuperarPecaProcessoEletronico;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
