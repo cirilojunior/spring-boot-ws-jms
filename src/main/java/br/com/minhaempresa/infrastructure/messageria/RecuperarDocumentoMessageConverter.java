@@ -1,5 +1,6 @@
-package br.com.minhaempresa.messageria;
+package br.com.minhaempresa.infrastructure.messageria;
 
+import br.com.minhaempresa.application.processoeletronico.RecuperarPecaProcessoEletronico;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jms.support.converter.MessageConversionException;
@@ -26,8 +27,8 @@ public class RecuperarDocumentoMessageConverter implements MessageConverter {
     public Object fromMessage(Message message) throws JMSException, MessageConversionException {
         String idDocumento = ((TextMessage) message).getText();
 
-        Logger.info("Convertendo mensagem da fila ID do Documento {} para {}.", idDocumento, MensagemRecuperarDocumento.class.getSimpleName());
-        return new MensagemRecuperarDocumento(idDocumento);
+        Logger.info("Convertendo mensagem da fila ID do Documento {} para {}.", idDocumento, RecuperarPecaProcessoEletronico.class.getSimpleName());
+        return new RecuperarPecaProcessoEletronico(idDocumento);
     }
 
 }

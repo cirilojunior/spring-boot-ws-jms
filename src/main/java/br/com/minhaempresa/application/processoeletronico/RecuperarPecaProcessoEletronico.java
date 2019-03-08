@@ -1,19 +1,21 @@
-package br.com.minhaempresa.messageria;
+package br.com.minhaempresa.application.processoeletronico;
+
+import br.com.minhaempresa.application.integracao.Mensagem;
 
 import java.util.StringJoiner;
 
-public class MensagemRecuperarDocumento implements Mensagem {
+public class RecuperarPecaProcessoEletronico implements Mensagem {
 
     private Integer idDocumento;
 
-    public MensagemRecuperarDocumento() {
+    public RecuperarPecaProcessoEletronico() {
     }
 
-    public MensagemRecuperarDocumento(Integer idDocumento) {
+    public RecuperarPecaProcessoEletronico(Integer idDocumento) {
         this.idDocumento = idDocumento;
     }
 
-    public MensagemRecuperarDocumento(String idDocumento) {
+    public RecuperarPecaProcessoEletronico(String idDocumento) {
         this.idDocumento = Integer.valueOf(idDocumento);
     }
 
@@ -27,7 +29,7 @@ public class MensagemRecuperarDocumento implements Mensagem {
 
     @Override
     public String toString() {
-        return new StringJoiner(", ", MensagemRecuperarDocumento.class.getSimpleName() + "[", "]")
+        return new StringJoiner(", ", RecuperarPecaProcessoEletronico.class.getSimpleName() + "[", "]")
                 .add("idDocumento=" + idDocumento)
                 .toString();
     }
