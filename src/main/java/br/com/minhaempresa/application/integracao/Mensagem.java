@@ -1,6 +1,10 @@
 package br.com.minhaempresa.application.integracao;
 
-public interface Mensagem {
+import java.io.Serializable;
+
+public interface Mensagem extends Serializable {
+
+    Long id();
 
     String valor();
 

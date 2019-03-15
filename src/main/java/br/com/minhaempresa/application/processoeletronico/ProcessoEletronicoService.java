@@ -32,13 +32,17 @@ public class ProcessoEletronicoService {
         processoEletronico.getListaPecas().toList().forEach(
                 peca ->
                 {
-                    RecuperarPecaProcessoEletronico mensagem = new RecuperarPecaProcessoEletronico(peca.getId());
+                    RecuperarPecaProcessoEletronico mensagem = new RecuperarPecaProcessoEletronico(geraIdentificadorMensagem(), peca.getId());
                     publicadorMensagem.publica(mensagem);
                     Logger.info("Peça de ID {} incluído na fila para recuperação.", peca.getId());
                 }
         );
 
         return protocolo;
+    }
+
+    private long geraIdentificadorMensagem() {
+        return System.currentTimeMillis();
     }
 
     private String geraProtocolo() {
