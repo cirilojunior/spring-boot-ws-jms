@@ -1,4 +1,4 @@
-package br.com.minhaempresa.application.processoeletronico;
+package br.com.minhaempresa.infrastructure.messageria;
 
 import br.com.minhaempresa.domain.ListaPecas;
 import br.com.minhaempresa.domain.Peca;
@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 import java.util.GregorianCalendar;
 
 @Component
-public class Converter {
+public class WsdlTypesConverter {
 
     public ProcessoEletronico from(ProcessoEletronicoType processoEletronicoType) {
 

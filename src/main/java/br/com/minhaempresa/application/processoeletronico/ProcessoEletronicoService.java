@@ -2,6 +2,7 @@ package br.com.minhaempresa.application.processoeletronico;
 
 import br.com.minhaempresa.application.integracao.PublicadorMensagem;
 import br.com.minhaempresa.domain.ProcessoEletronico;
+import br.com.minhaempresa.infrastructure.messageria.WsdlTypesConverter;
 import br.com.minhaempresa.infrastructure.ws.schemas.ProcessoEletronicoType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,10 +16,10 @@ public class ProcessoEletronicoService {
 
     private static final Logger Logger = LoggerFactory.getLogger(ProcessoEletronicoService.class);
     private PublicadorMensagem publicadorMensagem;
-    private Converter converter;
+    private WsdlTypesConverter converter;
 
     @Autowired
-    public ProcessoEletronicoService(PublicadorMensagem publicadorMensagem, Converter converter) {
+    public ProcessoEletronicoService(PublicadorMensagem publicadorMensagem, WsdlTypesConverter converter) {
         this.publicadorMensagem = publicadorMensagem;
         this.converter = converter;
     }
