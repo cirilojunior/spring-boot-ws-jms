@@ -9,9 +9,6 @@ public class ProcessoEletronico {
     private ListaPecas listaPecas;
 
     public ProcessoEletronico(String numero, LocalDateTime data, ListaPecas listaPecas) {
-        if (numero == null || !"".equals(numero)) {
-            throw new IllegalArgumentException("Informe o Nro do Processo Eletrônico.");
-        }
         this.numero = numero;
         this.data = data;
         this.listaPecas = listaPecas;
