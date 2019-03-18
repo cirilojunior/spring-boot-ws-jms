@@ -8,27 +8,28 @@ import org.springframework.jms.support.converter.MessageConverter;
 
 import javax.jms.JMSException;
 import javax.jms.Message;
+import javax.jms.ObjectMessage;
 import javax.jms.Session;
-import javax.jms.TextMessage;
+import java.io.Serializable;
 
 public class RecuperarDocumentoMessageConverter implements MessageConverter {
 
     private static final Logger Logger = LoggerFactory.getLogger(RecuperarDocumentoMessageConverter.class);
 
     @Override
-    public Message toMessage(Object idDocumento, Session session) throws JMSException, MessageConversionException {
-        Logger.info("Convertendo mensagem para colocar na fila o ID do Documento {}.", idDocumento.toString());
+    public Message toMessage(Object obj, Session session) throws JMSException, MessageConversionException {
+        Logger.info("Convertendo mensagem para colocar na fila o ID do Documento {}.", ((RecuperarPecaProcessoEletronico) obj).getIdDocumento().toString());
 
-        TextMessage textMessage = session.createTextMessage(idDocumento.toString());
-        return textMessage;
+        ObjectMessage message = session.createObjectMessage((Serializable) obj);
+        return message;
     }
 
     @Override
     public Object fromMessage(Message message) throws JMSException, MessageConversionException {
-        String idDocumento = ((TextMessage) message).getText();
+        RecuperarPecaProcessoEletronico obj = (RecuperarPecaProcessoEletronico) ((ObjectMessage) message).getObject();
 
-        Logger.info("Convertendo mensagem da fila ID do Documento {} para {}.", idDocumento, RecuperarPecaProcessoEletronico.class.getSimpleName());
-        return new RecuperarPecaProcessoEletronico(idDocumento);
+        Logger.info("Convertendo mensagem da fila ID do Documento {} para {}.", obj.getIdDocumento(), RecuperarPecaProcessoEletronico.class.getSimpleName());
+        return obj;
     }
 
 }
