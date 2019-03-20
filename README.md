@@ -42,3 +42,7 @@ Referências avaliadas:
 
 1. https://bsnyderblog.blogspot.com/2010/02/using-spring-jmstemplate-to-send-jms.html
 1. https://bsnyderblog.blogspot.com/2010/02/using-spring-to-receive-jms-messages.html
+
+1. https://singztechmusings.wordpress.com/2011/04/24/problem-with-creating-jms-messageproducer-using-spring-jmstemplate-how-to-solve/
+1. https://singztechmusings.wordpress.com/2011/06/21/pooledconnectionfactory-vs-cachingconnectionfactory-which-one-is-a-perfect-match-for-spring-jmstemplate/
+1. https://stackoverflow.com/questions/5916638/autoreconnect-problem-with-activemq-and-cachingconnectionfactory
