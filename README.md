@@ -1,4 +1,4 @@
-# spring-boot-ws-jms
+ # spring-boot-ws-jms
 Exemplo de uso de Spring Boot com Spring WS e Messageria.
 
 Baseado na documentação do produto e evoluindo para uma POC temática de um projeto real e outros sites:
@@ -39,3 +39,6 @@ Referências avaliadas:
 1. https://examples.javacodegeeks.com/enterprise-java/jms/java-jms-helloworld-on-jboss-example/
 1. https://codenotfound.com/spring-jms-tutorials
 1. http://activemq.apache.org/how-to-unit-test-jms-code.html
+
+1. https://bsnyderblog.blogspot.com/2010/02/using-spring-jmstemplate-to-send-jms.html
+1. https://bsnyderblog.blogspot.com/2010/02/using-spring-to-receive-jms-messages.html
