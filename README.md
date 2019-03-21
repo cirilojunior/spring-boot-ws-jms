@@ -1,4 +1,4 @@
-# spring-boot-ws-jms
+ # spring-boot-ws-jms
 Exemplo de uso de Spring Boot com Spring WS e Messageria.
 
 Baseado na documentação do produto e evoluindo para uma POC temática de um projeto real e outros sites:
@@ -39,3 +39,15 @@ Referências avaliadas:
 1. https://examples.javacodegeeks.com/enterprise-java/jms/java-jms-helloworld-on-jboss-example/
 1. https://codenotfound.com/spring-jms-tutorials
 1. http://activemq.apache.org/how-to-unit-test-jms-code.html
+
+1. https://bsnyderblog.blogspot.com/2010/02/using-spring-jmstemplate-to-send-jms.html
+1. https://bsnyderblog.blogspot.com/2010/02/using-spring-to-receive-jms-messages.html
+1. https://bsnyderblog.blogspot.com/2010/05/tuning-jms-message-consumption-in.html
+
+1. https://singztechmusings.wordpress.com/2011/04/24/problem-with-creating-jms-messageproducer-using-spring-jmstemplate-how-to-solve/
+1. https://singztechmusings.wordpress.com/2011/06/21/pooledconnectionfactory-vs-cachingconnectionfactory-which-one-is-a-perfect-match-for-spring-jmstemplate/
+1. https://stackoverflow.com/questions/5916638/autoreconnect-problem-with-activemq-and-cachingconnectionfactory
+1. https://stackoverflow.com/questions/19560479/which-is-better-pooledconnectionfactory-or-cachingconnectionfactory
+1. https://svn.apache.org/repos/asf/activemq/trunk/activemq-unit-tests/src/test/java/org/apache/activemq/spring/ActiveMQConnectionFactoryFactoryBeanTest.java
+
+1.https://examples.javacodegeeks.com/enterprise-java/jms/apache-activemq-failover-example/
