@@ -51,3 +51,4 @@ Referências avaliadas:
 1. https://svn.apache.org/repos/asf/activemq/trunk/activemq-unit-tests/src/test/java/org/apache/activemq/spring/ActiveMQConnectionFactoryFactoryBeanTest.java
 
 1. https://examples.javacodegeeks.com/enterprise-java/jms/apache-activemq-failover-example/
+1. https://examples.javacodegeeks.com/enterprise-java/jms/apache-activemq-load-balancing-example/
