@@ -15,6 +15,12 @@ public class ConsumidorMensagem {
 
     private static final Logger Logger = LoggerFactory.getLogger(ConsumidorMensagem.class);
 
+    /**
+     * Scan deste listener habilitado pelo @EnableJms. Usa o DefaultJmsListenerContainerFactory criado.
+     *
+     * @param mensagem
+     * @param messageId
+     */
     @JmsListener(destination = MessageriaConfig.FILA_RECUPERAR_PECA)
     public void consumir(@Payload RecuperarPecaProcessoEletronico mensagem,
                          @Header(JmsHeaders.MESSAGE_ID) String messageId) {

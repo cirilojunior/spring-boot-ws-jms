@@ -1,6 +1,6 @@
 package br.com.minhaempresa.application.processoeletronico;
 
-import br.com.minhaempresa.application.integracao.PublicadorMensagem;
+import br.com.minhaempresa.application.integracao.ProdutorMensagem;
 import br.com.minhaempresa.domain.ProcessoEletronico;
 import br.com.minhaempresa.infrastructure.messageria.WsdlTypesConverter;
 import br.com.minhaempresa.infrastructure.ws.schemas.ProcessoEletronicoType;
@@ -15,12 +15,12 @@ import java.util.UUID;
 public class ProcessoEletronicoService {
 
     private static final Logger Logger = LoggerFactory.getLogger(ProcessoEletronicoService.class);
-    private PublicadorMensagem publicadorMensagem;
+    private ProdutorMensagem produtorMensagem;
     private WsdlTypesConverter converter;
 
     @Autowired
-    public ProcessoEletronicoService(PublicadorMensagem publicadorMensagem, WsdlTypesConverter converter) {
-        this.publicadorMensagem = publicadorMensagem;
+    public ProcessoEletronicoService(ProdutorMensagem produtorMensagem, WsdlTypesConverter converter) {
+        this.produtorMensagem = produtorMensagem;
         this.converter = converter;
     }
 
@@ -34,7 +34,7 @@ public class ProcessoEletronicoService {
                 peca ->
                 {
                     RecuperarPecaProcessoEletronico mensagem = new RecuperarPecaProcessoEletronico(geraIdentificadorMensagem(), peca.getId());
-                    publicadorMensagem.publica(mensagem);
+                    produtorMensagem.publica(mensagem);
                     Logger.info("Peça de ID {} incluído na fila para recuperação.", peca.getId());
                 }
         );

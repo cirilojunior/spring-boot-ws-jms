@@ -8,13 +8,13 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PublicadorMensagem {
+public class ProdutorMensagem {
 
-    private static final Logger Logger = LoggerFactory.getLogger(PublicadorMensagem.class);
+    private static final Logger Logger = LoggerFactory.getLogger(ProdutorMensagem.class);
     private JmsTemplate jmsTemplate;
 
     @Autowired
-    public PublicadorMensagem(JmsTemplate jmsTemplate) {
+    public ProdutorMensagem(JmsTemplate jmsTemplate) {
         this.jmsTemplate = jmsTemplate;
     }
 

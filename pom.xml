@@ -34,9 +34,14 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-activemq</artifactId>
         </dependency>
-        <dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.apache.activemq</groupId>-->
+            <!--<artifactId>activemq-broker</artifactId>-->
+        <!--</dependency>-->
+        <dependency> <!-- Necessário somente se usar PooledConnectionFactory -->
             <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-broker</artifactId>
+            <artifactId>activemq-pool</artifactId>
+            <version>5.15.8</version>
         </dependency>
 
         <!-- Testes -->
